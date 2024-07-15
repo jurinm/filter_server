@@ -1,6 +1,17 @@
 export type DateType = Date | string;
 
-export type Message = Record<string, string | boolean | DateType | number>;
+export type FilterValidator = {
+  [key: string]: ({
+    messageValue,
+    value,
+  }: {
+    messageValue?: string | number | boolean | DateType;
+    value?: string | number | boolean | DateType;
+  }) => boolean;
+};
+export type Message = {
+  [key: string]: string | boolean | DateType | number | undefined;
+};
 
 export type StringFilter = {
   type: "string";
@@ -40,4 +51,8 @@ export type AndFilter = {
   filters: Filter[];
 };
 
-export type Filter = StringFilter | NumberFilter | BooleanFilter | DateFilter | OrFilter | AndFilter;
+export type FilterComplexity = "multiple" | "simple" | "mixed" | "multipleComplex" | "multipleFields";
+export type SingleFilter = StringFilter | NumberFilter | BooleanFilter | DateFilter;
+export type MultipleFilter = OrFilter | AndFilter;
+
+export type Filter = SingleFilter | MultipleFilter;
