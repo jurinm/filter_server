@@ -22,5 +22,6 @@ export function filterMessages(messages: any, filterParams: Filter): Message[] |
     queries = generateDatabaseQueries(filterParams, complexity);
     result = complexFilter(messages, filterParams as MultipleFilter, complexity);
   }
+  console.log(queries);
   return result;
 }

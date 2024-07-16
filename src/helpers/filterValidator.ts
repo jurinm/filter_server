@@ -21,11 +21,10 @@ const filterValidator: FilterParams = {
     return !!(messageValue && value && messageValue <= value);
   },
   eq: function ({ messageValue, value }) {
-    const verifiedMessageValue =
-      validateDate(messageValue as DateType) && typeof value === "string"
-        ? convertToDate(messageValue as DateType)
-        : messageValue;
-    console.log(typeof messageValue);
+    const verifiedMessageValue = validateDate(messageValue as DateType)
+      ? convertToDate(messageValue as DateType)
+      : messageValue;
+
     const verifiedValue = validateDate(value as DateType) ? convertToDate(value as DateType) : value;
 
     return !!(verifiedMessageValue === verifiedValue);

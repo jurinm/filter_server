@@ -1,9 +1,9 @@
 {
   "name": "aero_server",
   "version": "1.0.0",
-  "main": "/build/index.js",
+  "main": "/build/src/index.js",
   "scripts": {
-    "start": "node ./build/index.js",
+    "start": "node ./build/src/index.js",
     "build": "tsc --build tsconfig.json",
     "dev": "npx nodemon ./src/index.ts",
     "test": "jest"

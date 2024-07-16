@@ -5,7 +5,7 @@ import cors from "cors";
 
 const app = express();
 const port = process.env.PORT || 3000;
-const apiRoute = process.env.API_URL as string;
+const apiRoute = process.env.API_URL || "/api/v1";
 
 app.use(cors());
 app.use(express.json());
