@@ -1,7 +1,7 @@
-import { DateType, FilterValidator } from "../types/types";
+import { DateType, FilterParams } from "../types/types";
 import { convertToDate, validateDate } from "./dates";
 
-const filterValidator: FilterValidator = {
+const filterValidator: FilterParams = {
   after: function ({ messageValue, value }) {
     return !!(convertToDate(messageValue as DateType) < convertToDate(value as DateType));
   },
@@ -21,9 +21,11 @@ const filterValidator: FilterValidator = {
     return !!(messageValue && value && messageValue <= value);
   },
   eq: function ({ messageValue, value }) {
-    const verifiedMessageValue = validateDate(messageValue as DateType)
-      ? convertToDate(messageValue as DateType)
-      : messageValue;
+    const verifiedMessageValue =
+      validateDate(messageValue as DateType) && typeof value === "string"
+        ? convertToDate(messageValue as DateType)
+        : messageValue;
+    console.log(typeof messageValue);
     const verifiedValue = validateDate(value as DateType) ? convertToDate(value as DateType) : value;
 
     return !!(verifiedMessageValue === verifiedValue);

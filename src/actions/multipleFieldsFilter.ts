@@ -20,7 +20,6 @@ function multipleFieldsFilter(messages: Message[], { type, filters }: MultipleFi
   if (type === "and") {
     messagesLoop: for (let index = 0; index < messages.length; index++) {
       const message = messages[index];
-
       for (let index = 0; index < filters.length; index++) {
         const { value, field, operation } = filters[index] as SingleFilter;
         const found = filterValidator[operation]({ value: value, messageValue: message[field] });
