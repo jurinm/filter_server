@@ -8,6 +8,6 @@
 
 - You can run tests using `npm test` (by default only one is available)
 - Sending **_POST_** request to `/api/v1/messages/filter` with messages and filter
-- Access http://localhost:3001/api/v1/messages/filter and get filtered messages in browser from mock messages and predefined filter
+- Access /api/v1/messages/filter and get filtered messages in browser from mock messages and predefined filter
 
 **_Queries for both databases are displayed in console_**
